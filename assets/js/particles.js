@@ -73,19 +73,8 @@ class ParticleNetwork {
       this.ctx.fill();
       
       if (p.label) {
-        let opacity = 0;
-        if (this.mouse.x !== null && this.mouse.y !== null) {
-          const dx = p.x - this.mouse.x;
-          const dy = p.y - this.mouse.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 200) {
-            opacity = 1 - (dist / 200);
-          }
-        }
-        if (opacity > 0.02) {
-          this.ctx.fillStyle = `${tColor} ${opacity})`;
-          this.ctx.fillText(p.label, p.x + 8, p.y + 4);
-        }
+        this.ctx.fillStyle = `${tColor} 0.5)`;
+        this.ctx.fillText(p.label, p.x + 8, p.y + 4);
       }
     });
 
