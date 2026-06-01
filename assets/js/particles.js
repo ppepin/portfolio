@@ -27,11 +27,10 @@ class ParticleNetwork {
   }
 
   generateLabel() {
-    const chars = 'abcdefghijklmnopqrstuvwxyz';
-    let label = '';
-    for(let i=0; i<4; i++) label += chars.charAt(Math.floor(Math.random() * chars.length));
-    label += '00' + Math.floor(Math.random() * 10);
-    return label;
+    const stars = ['sirius', 'canopus', 'arcturus', 'vega', 'capella', 'rigel', 'procyon', 'betelgeuse', 'achernar', 'hadar', 'altair', 'aldebaran', 'spica', 'antares', 'pollux', 'fomalhaut', 'deneb', 'regulus', 'castor'];
+    const star = stars[Math.floor(Math.random() * stars.length)];
+    const digit = Math.floor(Math.random() * 9) + 1;
+    return `${star}00${digit}`;
   }
 
   initParticles() {
@@ -73,7 +72,7 @@ class ParticleNetwork {
       this.ctx.fill();
       
       if (p.label) {
-        this.ctx.fillStyle = `${tColor} 0.5)`;
+        this.ctx.fillStyle = `${tColor} 0.8)`;
         this.ctx.fillText(p.label, p.x + 8, p.y + 4);
       }
     });
