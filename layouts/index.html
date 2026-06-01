@@ -6,9 +6,9 @@
       {{ .Content }}
     </div>
     <div class="hero-links" style="display: flex; gap: 1rem; justify-content: center;">
-      <a href="/resume/" class="btn btn-primary">View Resume</a>
-      <a href="/projects/" class="btn btn-outline">My Projects</a>
-      <a href="/amusements/" class="btn btn-outline">Amusements</a>
+      <a href="{{ "resume/" | relURL }}" class="btn btn-primary">View Resume</a>
+      <a href="{{ "projects/" | relURL }}" class="btn btn-outline">My Projects</a>
+      <a href="{{ "amusements/" | relURL }}" class="btn btn-outline">Amusements</a>
     </div>
   </div>
 </div>
