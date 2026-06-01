@@ -4,8 +4,19 @@ class ParticleNetwork {
     if (!this.canvas) return;
     this.ctx = this.canvas.getContext('2d');
     this.particles = [];
+    this.mouse = { x: null, y: null };
+    
     this.resize();
     window.addEventListener('resize', () => this.resize());
+    window.addEventListener('mousemove', (e) => {
+      this.mouse.x = e.x;
+      this.mouse.y = e.y;
+    });
+    window.addEventListener('mouseout', () => {
+      this.mouse.x = null;
+      this.mouse.y = null;
+    });
+    
     this.initParticles();
     this.animate();
   }
@@ -65,6 +76,21 @@ class ParticleNetwork {
           this.ctx.lineWidth = 1;
           this.ctx.moveTo(p1.x, p1.y);
           this.ctx.lineTo(p2.x, p2.y);
+          this.ctx.stroke();
+        }
+      }
+      
+      if (this.mouse.x !== null && this.mouse.y !== null) {
+        const dx = this.particles[i].x - this.mouse.x;
+        const dy = this.particles[i].y - this.mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        
+        if (dist < 200) {
+          this.ctx.beginPath();
+          this.ctx.strokeStyle = `${lColor} ${(1 - dist/200) * 0.8})`;
+          this.ctx.lineWidth = 1.5;
+          this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
+          this.ctx.lineTo(this.mouse.x, this.mouse.y);
           this.ctx.stroke();
         }
       }
