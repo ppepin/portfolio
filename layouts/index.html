@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="hero">
+  <div class="glass" style="padding: 3rem 4rem; display: flex; flex-direction: column; align-items: center; max-width: 800px; margin: auto;">
+    <h1 style="margin-bottom: 1rem;">{{ .Title }}</h1>
+    <div style="font-size: 1.5rem; text-align: center; margin-bottom: 2.5rem; opacity: 0.9;">
+      {{ .Content }}
+    </div>
+    <div class="hero-links" style="display: flex; gap: 1rem; justify-content: center;">
+      <a href="/resume/" class="btn btn-primary">View Resume</a>
+      <a href="/projects/" class="btn btn-outline">My Projects</a>
+      <a href="/amusements/" class="btn btn-outline">Amusements</a>
+    </div>
+  </div>
+</div>
+{{ end }}

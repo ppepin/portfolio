@@ -1,0 +1,52 @@
+{{ define "main" }}
+<div class="content-page projects-page">
+  <div class="projects-header" style="text-align: center; margin-bottom: 3rem;">
+    <h1 class="page-title" style="font-size: 3rem; margin-bottom: 1rem;">
+      Recent <span style="background: linear-gradient(135deg, #58a6ff, #d946ef); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Projects</span>
+    </h1>
+    <p style="font-size: 1.1rem; opacity: 0.8; max-width: 600px; margin: 0 auto;">
+      A showcase of my recent automation, platform engineering, and software development work.
+    </p>
+  </div>
+
+  <div class="projects-grid">
+    {{ range .Pages }}
+    <div class="project-card glass">
+      <div class="project-thumbnail">
+        <!-- SVG placeholder pattern -->
+        <div class="thumbnail-placeholder"></div>
+        {{ if .Params.image }}
+        <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}">
+        {{ end }}
+      </div>
+      
+      <div class="project-content">
+        <h2>{{ .Title }}</h2>
+        
+        <div class="tech-tags">
+          {{ range .Params.technologies }}
+          <span class="tech-tag">{{ . }}</span>
+          {{ end }}
+        </div>
+        
+        <div class="project-description">
+          {{ .Content }}
+        </div>
+        
+        <div class="project-actions">
+          {{ if .Params.repoUrl }}
+          <a href="{{ .Params.repoUrl }}" target="_blank" rel="noreferrer" class="btn-project">View Source</a>
+          {{ end }}
+          
+          {{ if .Params.demoUrl }}
+          <a href="{{ .Params.demoUrl }}" target="_blank" rel="noreferrer" class="btn-project">Live Demo</a>
+          {{ else }}
+          <button disabled class="btn-project disabled">Live Demo</button>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

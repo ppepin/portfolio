@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Locale }}" data-theme="dark">
+{{ partial "head.html" . }}
+<body>
+  <canvas id="particle-canvas"></canvas>
+  {{ partial "header.html" . }}
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+</body>
+</html>

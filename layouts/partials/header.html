@@ -1,0 +1,12 @@
+<header>
+  <nav>
+    <a href="{{ site.BaseURL }}" class="logo">{{ site.Title }}</a>
+    <div class="nav-links">
+      {{ $currentPage := . }}
+      {{ range site.Menus.main }}
+        <a href="{{ .URL }}" class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">{{ .Name }}</a>
+      {{ end }}
+      <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+    </div>
+  </nav>
+</header>

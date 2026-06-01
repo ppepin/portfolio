@@ -1,0 +1,4 @@
+---
+title: "Amusements"
+type: "blog"
+---

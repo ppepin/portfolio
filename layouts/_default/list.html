@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="content-page glass">
+  <h1 class="page-title">{{ .Title }}</h1>
+  {{ .Content }}
+  <div class="card-grid">
+    {{ range .Pages }}
+    <a href="{{ .RelPermalink }}" class="card glass">
+      <h3>{{ .Title }}</h3>
+      {{ if not .Date.IsZero }}<div class="meta">{{ .Date.Format "January 2, 2006" }}</div>{{ end }}
+      <p>
+        {{ with .Params.summary }}
+          {{ . }}
+        {{ else }}
+          {{ .Summary | plainify | htmlUnescape | truncate 160 }}
+        {{ end }}
+      </p>
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

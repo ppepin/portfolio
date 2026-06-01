@@ -1,0 +1,82 @@
+name: "Patrick Pepin"
+headshot: "images/ppepin_headshot.png"
+summary: "Cloud and platform engineer with experience building and operating Kubernetes-driven platforms, GitOps workflows, and cloud-native infrastructure. Proven track record maintaining high-availability systems at scale, driving cloud-to-cloud migrations, and delivering automation that cuts operational risk and cost. Comfortable owning production reliability end-to-end across AWS and Azure environments."
+contact:
+  email: "patrick.pepin@icloud.com"
+  phone: "404-368-5174"
+  linkedin: "https://linkedin.com/in/pepin"
+  github: "https://github.com/ppepin"
+education:
+  - degree: "BSEE, Electrical Engineering"
+    institution: "Michigan Technological University"
+    year: ""
+skills:
+  - title: "Container Orchestration"
+    items:
+      - "Kubernetes"
+      - "Docker"
+      - "Helm"
+      - "ArgoCD"
+      - "HashiCorp Vault"
+  - title: "Infrastructure as Code"
+    items:
+      - "Terraform"
+      - "Puppet"
+      - "Docker"
+      - "GitOps"
+  - title: "Cloud Infrastructure"
+    items:
+      - "AWS"
+      - "Azure"
+  - title: "Observability and Alerting"
+    items:
+      - "Prometheus"
+      - "AlertManager"
+      - "PromQL"
+      - "Grafana"
+      - "Loki"
+      - "PagerDuty"
+  - title: "Scripting and Automation"
+    items:
+      - "Perl"
+      - "JavaScript"
+      - "Python"
+      - "Bash"
+      - "PHP"
+  - title: "System Administration"
+    items:
+      - "Linux"
+      - "Unix"
+      - "Automation"
+      - "Networking"
+      - "Security"
+      - "Troubleshooting"
+      - "CI/CD"
+experience:
+  - title: "Operations Engineer"
+    company: "Redfin (via RentPath)"
+    dates: "2016 - 2024"
+    description: |
+      Member of a six-person team responsible for the reliability, scalability, and security of RentPath’s distributed web platforms.
+      
+      - Served as rapid-response contact for automated alerts and after-hours calls, maintaining 24/7 uptime.
+      - Designed observability and alerting using Prometheus, Alertmanager, PromQL, Grafana, and PagerDuty.
+      - Supported migration from Linux infrastructure to Kubernetes, followed by Azure and AWS transitions.
+      - Migrated legacy image stack to Cloudinary, transferring millions of assets while preserving metadata.
+      - Built Cloudinary API-based monitoring to detect spikes in bandwidth.
+      - Owned Kubernetes version lifecycle management across AKS and EKS clusters.
+  - title: "Software Engineer"
+    company: "Cbeyond"
+    dates: "2008 - 2015"
+    description: |
+      Developed and maintained internal tools for the management and provisioning of telecom infrastructure.
+      
+      - Developed automation tools for provisioning, service delivery, and configuration management.
+      - Managed IBM Tivoli Netcool Configuration Manager supporting over 50,000 Cisco routers.
+      - Automated ITNCM installation and integrated it with CRM and inventory systems.
+      - Built internal tooling giving support teams visibility and configuration management capabilities.
+other_experience:
+  - title: "Senior Software Engineer"
+    company: "EarthLink / MindSpring"
+  - title: "Electrical Project Engineer"
+    company: "Mead Packaging"
