@@ -4,18 +4,9 @@ class ParticleNetwork {
     if (!this.canvas) return;
     this.ctx = this.canvas.getContext('2d');
     this.particles = [];
-    this.mouse = { x: null, y: null };
     
     this.resize();
     window.addEventListener('resize', () => this.resize());
-    window.addEventListener('mousemove', (e) => {
-      this.mouse.x = e.x;
-      this.mouse.y = e.y;
-    });
-    window.addEventListener('mouseout', () => {
-      this.mouse.x = null;
-      this.mouse.y = null;
-    });
     
     this.initParticles();
     this.animate();
@@ -43,7 +34,8 @@ class ParticleNetwork {
         vx: (Math.random() - 0.5) * 1.5,
         vy: (Math.random() - 0.5) * 1.5,
         radius: Math.random() * 2 + 1,
-        label: Math.random() < 0.15 ? this.generateLabel() : null
+        label: Math.random() < 0.15 ? this.generateLabel() : null,
+        hue: Math.random() * 360
       });
     }
   }
@@ -52,6 +44,7 @@ class ParticleNetwork {
     requestAnimationFrame(() => this.animate());
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     
+    const isJune = new Date().getMonth() === 5;
     const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
     const pColor = isDark ? 'rgba(88, 166, 255, 0.6)' : 'rgba(0, 102, 204, 0.4)';
     const lColor = isDark ? 'rgba(88, 166, 255,' : 'rgba(0, 102, 204,';
@@ -66,13 +59,18 @@ class ParticleNetwork {
       if (p.x < 0 || p.x > this.canvas.width) p.vx *= -1;
       if (p.y < 0 || p.y > this.canvas.height) p.vy *= -1;
 
-      this.ctx.fillStyle = pColor;
+      if (isJune) {
+        p.hue = (p.hue + 0.5) % 360;
+        this.ctx.fillStyle = `hsla(${p.hue}, 100%, 60%, 0.6)`;
+      } else {
+        this.ctx.fillStyle = pColor;
+      }
       this.ctx.beginPath();
       this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
       this.ctx.fill();
       
       if (p.label) {
-        this.ctx.fillStyle = `${tColor} 0.8)`;
+        this.ctx.fillStyle = isJune ? `hsla(${p.hue}, 100%, 75%, 0.8)` : `${tColor} 0.8)`;
         this.ctx.fillText(p.label, p.x + 8, p.y + 4);
       }
     });
@@ -87,25 +85,14 @@ class ParticleNetwork {
 
         if (dist < 150) {
           this.ctx.beginPath();
-          this.ctx.strokeStyle = `${lColor} ${1 - dist/150})`;
+          if (isJune) {
+            this.ctx.strokeStyle = `hsla(${(p1.hue + p2.hue) / 2}, 100%, 60%, ${1 - dist/150})`;
+          } else {
+            this.ctx.strokeStyle = `${lColor} ${1 - dist/150})`;
+          }
           this.ctx.lineWidth = 1;
           this.ctx.moveTo(p1.x, p1.y);
           this.ctx.lineTo(p2.x, p2.y);
-          this.ctx.stroke();
-        }
-      }
-      
-      if (this.mouse.x !== null && this.mouse.y !== null) {
-        const dx = this.particles[i].x - this.mouse.x;
-        const dy = this.particles[i].y - this.mouse.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        
-        if (dist < 200) {
-          this.ctx.beginPath();
-          this.ctx.strokeStyle = `${lColor} ${(1 - dist/200) * 0.8})`;
-          this.ctx.lineWidth = 1.5;
-          this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
-          this.ctx.lineTo(this.mouse.x, this.mouse.y);
           this.ctx.stroke();
         }
       }
