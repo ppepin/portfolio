@@ -53,6 +53,11 @@ skills:
       - "Troubleshooting"
       - "CI/CD"
 experience:
+  - title: "Reviewer Fellow"
+    company: "Handshake AI"
+    dates: "2025 - Present"
+    description: |
+      - Review output of training fellows contributing to AI coding product development for a confidential enterprise client, ensuring quality and accuracy of training data submissions.
   - title: "Operations Engineer"
     company: "Redfin (via RentPath)"
     dates: "2016 - 2024"
