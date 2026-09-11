@@ -57,7 +57,7 @@ experience:
     company: "Handshake AI"
     dates: "2025 - Present"
     description: |
-      - Review output of training fellows contributing to AI coding product development for a confidential enterprise client, ensuring quality and accuracy of training data submissions.
+      - Review output of training fellows contributing to AI coding product development for confidential enterprise clients, ensuring quality and accuracy of training data.
   - title: "Operations Engineer"
     company: "Redfin (via RentPath)"
     dates: "2016 - 2024"
@@ -65,7 +65,7 @@ experience:
       Member of a six-person team responsible for the reliability, scalability, and security of RentPath’s distributed web platforms.
       
       - Served as rapid-response contact for automated alerts and after-hours calls, maintaining 24/7 uptime.
-      - Designed observability and alerting using Prometheus, Alertmanager, PromQL, Grafana, and PagerDuty.
+      - Designed observability and alerting using Prometheus, Alertmanager, PromQL, Grafana, and PagerDuty, creating post-incident alerting rules with documented intent and mitigation steps to prevent repeat production issues.
       - Supported migration from Linux infrastructure to Kubernetes, followed by Azure and AWS transitions.
       - Migrated legacy image stack to Cloudinary, transferring millions of assets while preserving metadata.
       - Built Cloudinary API-based monitoring to detect spikes in bandwidth.
