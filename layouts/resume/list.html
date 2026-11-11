@@ -5,7 +5,7 @@
     {{ range hugo.Data.resume.experience }}
     <div class="experience-item">
       <h3>{{ .title }}</h3>
-      <div class="meta">{{ .company }} | {{ .dates }}</div>
+      <div class="meta">{{ .company }} | {{ .dates }}{{ with .location }} | {{ . }}{{ end }}</div>
       <div class="description">
         {{ .description | markdownify }}
       </div>
@@ -39,6 +39,9 @@
     <section>
       <h3>Contact</h3>
       <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.4rem; margin-top: 1rem;">
+        {{ with hugo.Data.resume.contact.location }}
+        <li>{{ . }}</li>
+        {{ end }}
         {{ if hugo.Data.resume.contact.email }}
         <li style="display: flex; align-items: center; gap: 0.5rem;">
           <svg style="width: 1.2rem; height: 1.2rem; flex-shrink: 0;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
