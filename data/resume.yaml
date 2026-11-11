@@ -23,6 +23,9 @@ skills:
     items:
       - "Terraform"
       - "GitOps"
+      - "Docker"
+      - "CFEngine"
+      - "Puppet"
   - title: "Cloud Operations"
     items:
       - "AWS"
@@ -33,10 +36,9 @@ skills:
       - "Loki"
       - "Prometheus"
       - "PromQL"
-  - title: "Infrastructure Automation"
-    items:
-      - "Puppet"
-      - "CFEngine"
+      - "Alertmanager"
+      - "PagerDuty"
+      - "Splunk"
   - title: "Scripting"
     items:
       - "Perl"
@@ -56,7 +58,8 @@ skills:
       - "Oracle"
   - title: "Communication"
     items:
-      - "Technical Communication and Training"
+      - "Technical Documentation and RAG"
+      - "Training and Facilitation"
 experience:
   - title: "Reviewer Fellow (Contract)"
     company: "Handshake AI"
